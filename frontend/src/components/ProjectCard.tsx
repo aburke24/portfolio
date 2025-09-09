@@ -1,14 +1,19 @@
-// src/components/ProjectCard.tsx
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ProjectDetailsBack from './ProjectDetailsBack';
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  techStack: string[];
-  imageUrl: string;
+  techStack: {
+    frontend: string[];
+    backend: string[];
+    database: string[];
+  };
   githubUrl: string;
   liveUrl: string | null;
+  imageUrl: string;
 }
 
 interface ProjectCardProps {
@@ -16,31 +21,107 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleCardClick = useCallback(() => setIsExpanded(true), []);
+  const handleClose = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsExpanded(false);
+  }, []);
+
   return (
-    <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
-      <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover" />
-      <div className="p-6">
-        <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-        <p className="text-gray-400 mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.techStack.map(tech => (
-            <span key={tech} className="bg-gray-700 text-teal-400 text-xs font-semibold px-2.5 py-0.5 rounded-full">
-              {tech}
-            </span>
-          ))}
+    <>
+      {/* Collapsed Card */}
+      <motion.div
+        layout
+        onClick={handleCardClick}
+        whileHover={{ scale: 1.02 }}
+        className={`bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-3xl p-6 shadow-2xl cursor-pointer w-full transition-all duration-300 ${
+          isExpanded ? 'hidden' : ''
+        }`}
+      >
+        <div className="flex justify-center">
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-[200px] h-40 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+          />
         </div>
-        <div className="flex justify-between">
-          {project.liveUrl && (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 font-semibold transition-colors">
-              Live Demo
+
+        <h2 className="text-xl font-semibold text-light-primary-text dark:text-dark-primary-text mb-1 line-clamp-1">
+          {project.title}
+        </h2>
+
+        <p className="text-light-secondary-text dark:text-dark-secondary-text text-sm line-clamp-2 mb-3">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {[...project.techStack.frontend, ...project.techStack.backend]
+            .slice(0, 3)
+            .map((tech, index) => (
+              <span
+                key={index}
+                className="text-xs px-2 py-1 bg-light-primary-bg dark:bg-dark-primary-bg text-light-primary-text dark:text-dark-primary-text rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+        </div>
+
+        {/* Link at bottom of card */}
+        <div className="text-center mt-auto">
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-block text-sm text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              View Live Demo
+            </a>
+          ) : (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-block text-sm text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              View on GitHub
             </a>
           )}
-          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-            GitHub
-          </a>
         </div>
-      </div>
-    </div>
+      </motion.div>
+
+      {/* Expanded Card */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 p-4 sm:p-8 bg-black/80 flex items-center justify-center overflow-y-auto"
+            onClick={handleClose}
+          >
+            <motion.div onClick={(e) => e.stopPropagation()}>
+              <ProjectDetailsBack
+                title={project.title}
+                description={project.description}
+                frontend={project.techStack.frontend}
+                backend={project.techStack.backend}
+                database={project.techStack.database}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                onClose={handleClose}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
