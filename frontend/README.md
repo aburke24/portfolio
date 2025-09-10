@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+Aubrey Burke's Portfolio
+  Welcome to the source code for my personal portfolio website, where I showcase my professional experience, skills, and personal projects. The site is a living representation of my passion for software engineering and my commitment to building practical, impactful solutions.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  You can view the live portfolio here: aubrey-burke-portfolio.vercel.app
 
-Currently, two official plugins are available:
+Technology Stack
+  This portfolio is a single-page application built with modern web technologies to ensure a fast, responsive, and maintainable user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Frontend: React, JavaScript, HTML, CSS
 
-## Expanding the ESLint configuration
+  Deployment: Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Features
+  Responsive Design: The site is fully responsive and optimized for a seamless experience on both desktop and mobile devices.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  Project Showcase: Highlights key personal projects with detailed descriptions and links to live demos and their respective code repositories.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  Resume & Contact: Provides a clear, accessible view of my professional background and ways to get in touch.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Local Development
+  To get a copy of the project up and running on your local machine, follow these steps.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    Prerequisites:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    Node.js (LTS version recommended)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    npm
+
+    Installation:
+
+      Clone the repository:
+
+      git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+      cd your-repo-name
+
+    Install dependencies:
+
+      npm install
+
+    Run the development server:
+
+      npm run dev
+
+  The application will be available at http://localhost:5173.
+
+Contact
+I'd love to connect and discuss new opportunities or collaborations.
+
+Email: aubreyburke3@gmail.com
+
+LinkedIn: linkedin.com/in/aubreyburke3

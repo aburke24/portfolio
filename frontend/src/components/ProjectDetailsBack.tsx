@@ -7,7 +7,7 @@ interface ProjectDetailsBackProps {
   problemStatement: string;
   role: string;
   process: string;
-  processImages?: string[]; // <-- added optional prop
+  processImages?: string[]; 
   challenges: string;
   lessonsLearned: string;
   futureImprovements: string;
@@ -25,7 +25,7 @@ const ProjectDetailsBack: React.FC<ProjectDetailsBackProps> = ({
   problemStatement,
   role,
   process,
-  processImages = [], // default to empty array
+  processImages = [], 
   challenges,
   lessonsLearned,
   futureImprovements,

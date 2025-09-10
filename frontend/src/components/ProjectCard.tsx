@@ -36,15 +36,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     setIsExpanded(false);
   }, []);
 
+  // Combine all tech stack arrays and remove duplicates using Set
+  const allTechStack = Array.from(
+    new Set([
+      ...project.techStack.frontend,
+      ...project.techStack.backend,
+      ...project.techStack.database,
+    ])
+  );
+
   return (
     <>
       {/* Collapsed Card View */}
       <motion.div
         layout
         onClick={handleCardClick}
-        whileHover={{ scale: 1.02 }}
-        className={`bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-3xl p-6 shadow-2xl cursor-pointer w-full transition-all duration-300 ${isExpanded ? 'hidden' : ''
-          }`}
+        whileHover={{
+          scale: 1.02,
+          boxShadow: '0 0 15px 4px rgba(14, 165, 233, 0.6)',
+        }}
+        className={`bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-3xl p-6 shadow-2xl cursor-pointer w-full transition-all duration-300 ${
+          isExpanded ? 'hidden' : ''
+        }`}
       >
         <div className="flex justify-center mb-4">
           <img
@@ -62,17 +75,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {project.briefSummary}
         </p>
 
+        {/* Display unique tech stack badges */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {[...project.techStack.frontend, ...project.techStack.backend]
-            .slice(0, 3)
-            .map((tech, index) => (
-              <span
-                key={index}
-                className="text-xs px-2 py-1 bg-light-primary-bg dark:bg-dark-primary-bg text-light-primary-text dark:text-dark-primary-text rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
+          {allTechStack.map((tech, index) => (
+            <span
+              key={index}
+              className="text-xs px-2 py-1 bg-light-primary-bg dark:bg-dark-primary-bg text-light-primary-text dark:text-dark-primary-text rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
 
         <div className="text-center mt-auto">
@@ -124,12 +136,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 problemStatement={project.problemStatement}
                 role={project.role}
                 process={project.process}
-                processImages={project.processImages}  // <-- pass it here
+                processImages={project.processImages}
                 challenges={project.challenges}
                 lessonsLearned={project.lessonsLearned}
                 futureImprovements={project.futureImprovements}
               />
-
             </motion.div>
           </motion.div>
         )}
