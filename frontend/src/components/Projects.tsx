@@ -1,35 +1,6 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import GreenThumbLogo from '../assets/GreenThumbLogo.svg';
-
-const projects = [
-  {
-    id: 1,
-    title: "Green Thumb",
-    description: "A full stack web application where users can design their garden layouts.",
-    techStack: {
-      frontend: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      backend: [],
-      database: [],
-    },
-    imageUrl: GreenThumbLogo,
-    githubUrl: "https://github.com/aubreyburke/my-portfolio",
-    liveUrl: "https://aubreyburke.dev",
-  },
-  {
-    id: 2,
-    title: "E-commerce Backend",
-    description: "A RESTful API for an e-commerce platform. It handles user authentication, product management, and order processing with a PostgreSQL database.",
-    techStack: {
-      frontend: ["Node.js", "Express", "TypeScript"],
-      backend: ["Node.js", "Express", "TypeScript"],
-      database: ["PostgreSQL"],
-    },
-    imageUrl: "/images/ecommerce-api.png",
-    githubUrl: "https://github.com/aubreyburke/ecom-api",
-    liveUrl: null,
-  },
-];
+import projects from '../data/ProjectsData';
 
 const Projects: React.FC = () => {
   return (
@@ -40,7 +11,7 @@ const Projects: React.FC = () => {
           My Projects
         </h2>
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto px-4">
-          {projects.map(project => (
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>

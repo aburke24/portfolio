@@ -13,14 +13,14 @@ const Contact: React.FC = () => {
       </p>
       <div className="flex justify-center space-x-6">
         <a 
-          href="mailto:aubrey.burke@example.com"
+          href="mailto:aubrey.burke3@gmail.com"
           aria-label="Email"
           className="text-gray-400 hover:text-teal-400 transition-colors"
         >
           <Mail size={32} />
         </a>
         <a
-          href="https://github.com/aubreyburke"
+          href="https://github.com/aburke24"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
           <Github size={32} />
         </a>
         <a
-          href="https://linkedin.com/in/aubreyburke"
+          href="https://linkedin.com/in/aubreyburke3"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"

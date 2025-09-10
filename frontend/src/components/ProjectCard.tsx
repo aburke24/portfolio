@@ -5,7 +5,14 @@ import ProjectDetailsBack from './ProjectDetailsBack';
 interface Project {
   id: number;
   title: string;
-  description: string;
+  briefSummary: string;
+  problemStatement: string;
+  role: string;
+  process: string;
+  processImages?: string[];
+  challenges: string;
+  lessonsLearned: string;
+  futureImprovements: string;
   techStack: {
     frontend: string[];
     backend: string[];
@@ -31,20 +38,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   return (
     <>
-      {/* Collapsed Card */}
+      {/* Collapsed Card View */}
       <motion.div
         layout
         onClick={handleCardClick}
         whileHover={{ scale: 1.02 }}
-        className={`bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-3xl p-6 shadow-2xl cursor-pointer w-full transition-all duration-300 ${
-          isExpanded ? 'hidden' : ''
-        }`}
+        className={`bg-light-secondary-bg dark:bg-dark-secondary-bg rounded-3xl p-6 shadow-2xl cursor-pointer w-full transition-all duration-300 ${isExpanded ? 'hidden' : ''
+          }`}
       >
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-4">
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="w-[200px] h-40 object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+            className="w-[200px] h-40 object-contain rounded-xl transition-transform duration-300 hover:scale-105"
           />
         </div>
 
@@ -53,7 +59,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </h2>
 
         <p className="text-light-secondary-text dark:text-dark-secondary-text text-sm line-clamp-2 mb-3">
-          {project.description}
+          {project.briefSummary}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-4">
@@ -69,7 +75,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             ))}
         </div>
 
-        {/* Link at bottom of card */}
         <div className="text-center mt-auto">
           {project.liveUrl ? (
             <a
@@ -95,7 +100,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       </motion.div>
 
-      {/* Expanded Card */}
+      {/* Expanded Details View */}
       <AnimatePresence>
         {isExpanded && (
           <motion.div
@@ -109,14 +114,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <motion.div onClick={(e) => e.stopPropagation()}>
               <ProjectDetailsBack
                 title={project.title}
-                description={project.description}
                 frontend={project.techStack.frontend}
                 backend={project.techStack.backend}
                 database={project.techStack.database}
                 githubUrl={project.githubUrl}
                 liveUrl={project.liveUrl}
                 onClose={handleClose}
+                briefSummary={project.briefSummary}
+                problemStatement={project.problemStatement}
+                role={project.role}
+                process={project.process}
+                processImages={project.processImages}  // <-- pass it here
+                challenges={project.challenges}
+                lessonsLearned={project.lessonsLearned}
+                futureImprovements={project.futureImprovements}
               />
+
             </motion.div>
           </motion.div>
         )}
