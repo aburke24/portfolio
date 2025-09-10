@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               onClick={(e) => e.stopPropagation()}
               className="inline-block text-sm text-blue-500 hover:text-blue-600 transition-colors"
             >
-              View Live Demo
+              Go to App
             </a>
           ) : (
             <a
