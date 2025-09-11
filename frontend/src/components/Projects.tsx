@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-light-secondary-bg to-light-primary-bg dark:from-dark-secondary-bg dark:to-dark-primary-bg opacity-50 -z-10"></div>
       <div className="container mx-auto px-4 py-12">
-        <h2 className="text-5xl font-extrabold text-center text-light-primary-text dark:text-dark-primary-text mb-16 animate-fade-in">
+        <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white text-center mb-16 animate-fade-in">
           My Projects
         </h2>
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto px-4">
