@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
       <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
         Get In Touch
       </h2>
-      <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+      <p className="text-lg ttext-gray-900 dark:text-white mb-8 max-w-2xl mx-auto">
         I'm currently seeking new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll do my best to get back to you!
       </p>
       <div className="flex justify-center space-x-6">
