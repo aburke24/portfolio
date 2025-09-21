@@ -28,7 +28,7 @@ const projects = [
   },
 {
     id: 2,
-    title: "LiDAR Object Volume & Moving Estimator",
+    title: "Mover Metrics",
     briefSummary: "This Unity application uses LiDAR and object detection to identify household objects and estimate their real-world volume. It provides a foundational tool for a moving company estimator by calculating the cubic volume of items in a room, offering a digital solution for move-in and move-out planning.",
     problemStatement: "Estimating the cost of a move is often difficult, as it's based on factors like the number of boxes, furniture, and total cubic volume. Traditional methods are slow and inaccurate. This application solves this problem by using a device's camera and LiDAR sensor to automatically identify objects, calculate their volume, and provide a quick and accurate estimate of the total space required for a move.",
     role: "I am responsible for the core logic of the application. This includes the integration of the Lightship ARDK for object detection and the Unity AR Foundation framework for LiDAR data processing. I also developed the volume estimation algorithm and the UI for displaying the detected objects and their calculated volumes.",
