@@ -1,4 +1,3 @@
-// src/components/About.tsx
 import React from 'react';
 import {
   Sparkles,
@@ -12,7 +11,8 @@ import {
   CloudLightning,
   Boxes,
   GitBranch,
-  Wind
+  Wind,
+  Code
 } from 'lucide-react';
 import headshot from '../assets/headShot.png';
 
@@ -51,6 +51,15 @@ const About: React.FC = () => {
                 My Stack
               </h3>
               <ul className="flex flex-wrap justify-center lg:justify-start gap-3 text-sm font-medium">
+                <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-pink-600 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
+                  <Turtle size={16} className="mr-2" /> Python
+                </li>
+                <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-purple-600 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
+                  <Coffee size={16} className="mr-2" /> Java
+                </li>
+                <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-red-500 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
+                  <Code size={16} className="mr-2" /> C#
+                </li>
                 <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-sky-500 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
                   <Atom size={16} className="mr-2" /> React
                 </li>
@@ -62,12 +71,6 @@ const About: React.FC = () => {
                 </li>
                 <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-yellow-500 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
                   <Table size={16} className="mr-2" /> SQL
-                </li>
-                <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-purple-600 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
-                  <Coffee size={16} className="mr-2" /> Java
-                </li>
-                <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-pink-600 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
-                  <Turtle size={16} className="mr-2" /> Python
                 </li>
                 <li className="flex items-center bg-light-secondary-bg dark:bg-dark-secondary-bg text-blue-600 px-4 py-2 rounded-full transform hover:scale-110 transition-transform duration-200">
                   <Cloud size={16} className="mr-2" /> Azure

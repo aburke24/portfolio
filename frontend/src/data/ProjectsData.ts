@@ -3,6 +3,7 @@ import Process1 from '../assets/GTFlow.png';
 import Process2 from '../assets/GTHomePage.png';
 import Process3 from '../assets/GTGardenViewPage.png';
 import Process4 from '../assets/GTEditBed.png';
+import MoverMetricsLogo from '../assets/MoverMetrics.svg';
 
 const projects = [
   {
@@ -24,8 +25,34 @@ const projects = [
     githubUrl: "https://github.com/aburke24/GreenThumb-v2",
     liveUrl: "https://green-thumb-v2.vercel.app/",
     imageUrl: GreenThumbLogo,
-  }
-];
+  },
+{
+    id: 2,
+    title: "LiDAR Object Volume & Moving Estimator",
+    briefSummary: "This Unity application uses LiDAR and object detection to identify household objects and estimate their real-world volume. It provides a foundational tool for a moving company estimator by calculating the cubic volume of items in a room, offering a digital solution for move-in and move-out planning.",
+    problemStatement: "Estimating the cost of a move is often difficult, as it's based on factors like the number of boxes, furniture, and total cubic volume. Traditional methods are slow and inaccurate. This application solves this problem by using a device's camera and LiDAR sensor to automatically identify objects, calculate their volume, and provide a quick and accurate estimate of the total space required for a move.",
+    role: "I am responsible for the core logic of the application. This includes the integration of the Lightship ARDK for object detection and the Unity AR Foundation framework for LiDAR data processing. I also developed the volume estimation algorithm and the UI for displaying the detected objects and their calculated volumes.",
+    process: `The process began by integrating object detection and LiDAR capabilities into a single Unity project. The core logic involves using the ARObjectDetectionManager to identify objects in the camera's view and an ARPointCloudManager to access the LiDAR point cloud. By identifying points within a detected object's bounding box, the application estimates its real-world volume. The UI was designed to display a list of detected items and their estimated volume, with a focus on clear and concise information.`,
+    processImages: [],
+    challenges: `One of the main challenges has been ensuring a seamless integration between the Lightship ARDK and Unity's AR Foundation. I had to address compatibility issues, such as ensuring the correct API calls for accessing mesh and point cloud data, and managing dependencies between the two systems. Another challenge was accurately calculating volume from sparse point cloud data, which required careful handling of the bounding box and point cloud data to get a reliable estimate.`,
+    lessonsLearned: "",
+    futureImprovements: `- Incorporate this Unity app into a React Native application to display more information about the move.
+- Improve object detection to improve the estimated volumes.
+- Implement a backend to store and support more functionality.
+- Implement an object identifier backend instead of using Lightship.
+- Add weight estimations.
+- Add a cost-to-move with a moving company estimator.`,
+    techStack: {
+      frontend: ["Unity 3D", "UI Toolkit"],
+      backend: ["To be determined"],
+      database: ["To be determined"],
+      ar_frameworks: ["Niantic Lightship ARDK", "Unity AR Foundation"]
+    },
+    githubUrl:"https://github.com/aburke24/MoverMetrics" ,
+    liveUrl: "",
+    imageUrl: MoverMetricsLogo
+},
 
+];
 
 export default projects;
