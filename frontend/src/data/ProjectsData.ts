@@ -43,7 +43,7 @@ const projects = [
 - Add weight estimations.
 - Add a cost-to-move with a moving company estimator.`,
     techStack: {
-      frontend: ["Unity 3D", "UI Toolkit"],
+      frontend: ["C#","Unity 3D", "UI Toolkit"],
       backend: ["To be determined"],
       database: ["To be determined"],
       ar_frameworks: ["Niantic Lightship ARDK", "Unity AR Foundation"]
